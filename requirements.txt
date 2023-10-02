@@ -1,6 +1,5 @@
 streamlit
 langchain
 uuid
-pickle
 streamlit-cookies-manager
 
