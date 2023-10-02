@@ -3,3 +3,4 @@ langchain
 csv
 uuid
 pickle
+streamlit-cookies-manager
