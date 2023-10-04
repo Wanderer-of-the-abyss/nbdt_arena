@@ -2,4 +2,4 @@ streamlit
 langchain
 uuid
 streamlit-cookies-manager
-
+sentence-transformers
