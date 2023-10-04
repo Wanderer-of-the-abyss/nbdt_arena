@@ -25,9 +25,7 @@ if user_id is None:
     user_id = str(uuid.uuid4())  # Generate a random user ID
     cookies['user_id'] = user_id  # Set the cookie
 
-file_path = "article_list.pkl"
-with open(file_path, "rb") as articles:
-    article_list = tuple(pickle.load(articles))
+
 INDEXES = ["miread_large", "miread_contrastive", "scibert_contrastive"]
 MODELS = [
     "biodatlab/MIReAD-Neuro-Large",
@@ -58,8 +56,7 @@ def get_comp(prompt):
     return left_output, right_output
 
 
-def get_article():
-    return random.choice(article_list)
+
 
 
 def send_result(l_output, r_output, prompt, pick):
@@ -138,7 +135,7 @@ st.markdown(
 )
 
 
-article = get_article()
+
 prompt = st.text_area("Enter Abstract", article, height=200)
 action_btn = st.button("Get Comparison")
 
