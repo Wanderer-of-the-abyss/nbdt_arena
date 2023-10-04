@@ -25,8 +25,8 @@ if user_id is None:
     user_id = str(uuid.uuid4())  # Generate a random user ID
     cookies['user_id'] = user_id  # Set the cookie
 
-
-with open("article_list.pkl", "rb") as articles:
+file_path = "article_list.pkl"
+with open(file_path, "rb") as articles:
     article_list = tuple(pickle.load(articles))
 INDEXES = ["miread_large", "miread_contrastive", "scibert_contrastive"]
 MODELS = [
