@@ -3,3 +3,4 @@ langchain
 uuid
 streamlit-cookies-manager
 sentence-transformers
+faiss-cpu
