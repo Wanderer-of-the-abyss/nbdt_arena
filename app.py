@@ -8,6 +8,7 @@ import uuid
 import pickle
 from langchain.vectorstores import FAISS
 from langchain.embeddings import HuggingFaceEmbeddings
+import requests
 
 st.set_page_config(page_title="NBDT Recommendation Engine Arena")
 
@@ -24,8 +25,31 @@ if user_id is None:
     user_id = str(uuid.uuid4())  # Generate a random user ID
     cookies['user_id'] = user_id  # Set the cookie
 
-with open("article_list.pkl", "rb") as articles:
+
+def download_file(url, local_filename):
+    with requests.get(url, stream=True) as r:
+        r.raise_for_status()
+        with open(local_filename, 'wb') as f:
+            for chunk in r.iter_content(chunk_size=8192):
+                f.write(chunk)
+    return local_filename
+
+# URLs of your remote files
+article_list_url = "https://huggingface.co/spaces/atrytone/ArenaTester/resolve/main/article_list.pkl"
+
+
+# Local paths where the files will be downloaded
+article_list_path = "article_list.pkl"
+
+
+# Download the files
+download_file(article_list_url, article_list_path)
+
+
+# Now load the files from the local paths
+with open(article_list_path, "rb") as articles:
     article_list = tuple(pickle.load(articles))
+    
 INDEXES = ["miread_large", "miread_contrastive", "scibert_contrastive"]
 MODELS = [
     "biodatlab/MIReAD-Neuro-Large",
