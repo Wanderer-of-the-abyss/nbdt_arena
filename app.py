@@ -39,7 +39,7 @@ article_list_url = "https://huggingface.co/spaces/atrytone/ArenaTester/resolve/m
 
 
 # Local paths where the files will be downloaded
-article_list_path = "article_list.pkl"
+article_list_path = "article_list_2.pkl"
 
 
 # Download the files
