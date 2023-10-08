@@ -16,8 +16,7 @@ cookies = EncryptedCookieManager(
     password=os.environ.get("COOKIES_PASSWORD", "uDnda87,kGFdi&jh.kjsk/jk4DF369*^jhGks"),
 )
 warnings.filterwarnings("ignore")
-import uuid
-from datetime import datetime, timedelta
+
 
 user_id = cookies.get('user_id')  # Attempt to retrieve the user ID cookie
 
